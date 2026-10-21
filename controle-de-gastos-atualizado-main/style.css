@@ -106,11 +106,11 @@ select:focus-visible {
 }
 
 #remover {
-    background-color: #6b7771;
+    background-color: #7ba38f;
 }
 
 #remover:hover {
-    background-color: #505a55;
+    background-color: #0c472a;
 }
 
 #remover:disabled {
@@ -240,7 +240,7 @@ tbody tr:nth-child(even) {
     display: inline-block;
     padding: 6px 9px;
     border-radius: 20px;
-    color: #17332b;
+    color: #000000;
     font-size: 13px;
     white-space: nowrap;
 }
