@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Gastos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="gasto">
+
+        <header class="topo">
+            <h1>Controle de gastos</h1>
+        </header>
+
+        <form class="formulario" id="formulario">
+
+            <h2>Novo gasto</h2>
+
+            <p>
+                <label for="descricao">Descrição</label>
+                <input
+                    type="text"
+                    id="descricao"
+                    placeholder="Ex.: lanche"
+                    required
+                >
+            </p>
+
+            <p>
+                <label for="valor">Valor (R$)</label>
+                <input
+                    type="number"
+                    id="valor"
+                    placeholder="Ex.: 12.50"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+            </p>
+
+            <p>
+                <label for="categoria">Categoria</label>
+                <select id="categoria" required>
+                    <option value="Alimentação">Alimentação</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Lazer">Lazer</option>
+                </select>
+            </p>
+
+            <button type="submit">Adicionar gasto</button>
+            <button type="button" id="remover">Remover último</button>
+
+        </form>
+
+        <section class="resumo">
+
+            <h2>Resumo</h2>
+
+            <div class="resumo-itens">
+
+                <div class="item">
+                    <p>Total gasto</p>
+                    <strong id="total">R$ 0,00</strong>
+                </div>
+
+                <div class="item">
+                    <p>Gastos registrados</p>
+                    <strong id="quantidade">0</strong>
+                </div>
+
+                <div class="item">
+                    <p>Média por gasto</p>
+                    <strong id="media">R$ 0,00</strong>
+                </div>
+
+                <div class="item">
+                    <p>Maior gasto</p>
+                    <strong id="maior">—</strong>
+                </div>
+
+                <div class="item">
+                    <p>Menor gasto</p>
+                    <strong id="menor">—</strong>
+                </div>
+
+            </div>
+
+            <div class="orcamento">
+                <p>Orçamento da semana: R$ 120,00</p>
+                <strong id="orcamento">R$ 120,00 restantes</strong>
+            </div>
+
+        </section>
+
+        <section class="categorias">
+
+            <h2>Por categoria</h2>
+
+            <div id="lista-categorias"></div>
+
+        </section>
+
+        <section class="gastos">
+
+            <h2>Histórico</h2>
+
+            <div class="controles">
+
+                <p>
+                    <label for="filtro">Filtrar por categoria:</label>
+
+                    <select id="filtro">
+                        <option value="Todas">Todas as categorias</option>
+                        <option value="Alimentação">Só Alimentação</option>
+                        <option value="Transporte">Só Transporte</option>
+                        <option value="Lazer">Só Lazer</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="ordenacao">Ordenar por:</label>
+
+                    <select id="ordenacao" class="campo-ordem">
+                        <option value="padrao">Ordem de adição</option>
+                        <option value="titulo-az">Descrição (A–Z)</option>
+                        <option value="titulo-za">Descrição (Z–A)</option>
+                    </select>
+                </p>
+
+            </div>
+
+            <p id="legenda">Nenhum gasto</p>
+
+            <div class="tabela">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Categoria</th>
+                            <th>Apagar</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="linhas"></tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Total</th>
+                            <td id="total-rodape">R$ 0,00</td>
+                            <td colspan="2">—</td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #b9eecb;
+    color: #267b7b;
+}
+
+.gasto {
+    display: grid;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    grid-template-areas:
+        "topo topo"
+        "formulario resumo"
+        "categorias gastos";
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.topo {
+    grid-area: topo;
+}
+
+.formulario {
+    grid-area: formulario;
+}
+
+.resumo {
+    grid-area: resumo;
+}
+
+.categorias {
+    grid-area: categorias;
+}
+
+.gastos {
+    grid-area: gastos;
+    min-width: 0;
+}
+
+.topo,
+.formulario,
+.resumo,
+.categorias,
+.gastos {
+    padding: 24px;
+    border: 1px solid #0f0f0f;
+    border-radius: 10px;
+    background-color: white;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 23px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+}
+
+button {
+    padding: 15px;
+    margin: 5px 4px 5px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #98fae0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #609b98;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #17634f;
+    outline-offset: 2px;
+}
+
+#remover {
+    background-color: #6b7771;
+}
+
+#remover:hover {
+    background-color: #505a55;
+}
+
+#remover:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.resumo-itens {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.item {
+    min-width: 0;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f0f5f2;
+}
+
+.item p {
+    margin-top: 0;
+    color: #64736b;
+}
+
+.item strong {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.orcamento {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px dashed #c7d0cb;
+    border-radius: 8px;
+}
+
+.orcamento p {
+    margin-top: 0;
+    color: #000000;
+}
+
+.orcamento strong {
+    font-size: 18px;
+}
+
+.categoria {
+    margin-bottom: 24px;
+}
+
+.categoria:last-child {
+    margin-bottom: 0;
+}
+
+.categoria-titulo {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.categoria-titulo strong {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.barra-fundo {
+    height: 16px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #dfdddd;
+}
+
+.barra {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.alimentacao {
+    background-color: #38c9a1;
+}
+
+.transporte {
+    background-color: #5dade2;
+}
+
+.lazer {
+    background-color: #bb8fce;
+}
+
+.outros {
+    background-color: #95a5a6;
+}
+
+#legenda {
+    margin: 20px 0 12px;
+    color: #333;
+}
+
+.tabela {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #dce3df;
+}
+
+thead {
+    background-color: #f0f5f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f7f9fc;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 20px;
+    color: #17332b;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.apagar {
+    padding: 4px 10px;
+    margin: 0;
+    background-color: transparent;
+    color: #777;
+    font-size: 22px;
+}
+
+.apagar:hover {
+    background-color: transparent;
+    color: red;
+}
+
+tfoot th,
+tfoot td {
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .gasto {
+        grid-template-columns: minmax(0, 1fr);
+
+        grid-template-areas:
+            "topo"
+            "formulario"
+            "resumo"
+            "categorias"
+            "gastos";
+    }
+
+    .topo,
+    .formulario,
+    .resumo,
+    .categorias,
+    .gastos {
+        padding: 18px;
+    }
+
+    .categoria-titulo {
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .resumo-itens {
+        grid-template-columns: 1fr;
+    }
+
+    .categoria-titulo {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+}
